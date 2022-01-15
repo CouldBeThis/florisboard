@@ -1,71 +1,6 @@
-# Contributing
+# Notes on contributing
 
-First off, thanks for considering contributing to FlorisBoard!
-
-There are several ways to contribute to FlorisBoard. This document
-provides some general guidelines for each type of contribution.
-
-## Giving general feedback
-
-NEW! You can now [give general feedback](https://github.com/florisboard/florisboard/discussions/new?category=feedback)
-directly here on GitHub. This is the preferred way to give feedback, as
-it allows not only for me to read and respond to feedback, but for everyone
-in this community.
-
-Optionally you can also use the review function within Google Play or email me
-at [florisboard@patrickgold.dev](mailto:florisboard@patrickgold.dev). I
-love to hear from you! Note, that the amount of feedback emails I get
-is overwhelmingly high - so if I don't answer or answer really late, I
-apologize - I guarantee though that I read through every email and that
-I will use every feedback to improve FlorisBoard :)
-
-## Translations
-
-To make FlorisBoard accessible in as many languages as possible, the
-platform [Crowdin](https://crowdin.florisboard.patrickgold.dev) is used
-to crowdsource and manage translations. This is the only source of
-translations from now on - **PRs that add/update translations are no
-longer accepted.** The list of languages in Crowdin covers the top 20
-languages, but feel free to email me at
-[florisboard@patrickgold.dev](mailto:florisboard@patrickgold.dev) to
-request a language and I'll add it.
-
-## Adding a new feature or making large changes
-
-If you intend to add a new feature or to make large changes, please
-discuss this first through a proposal on GitHub. Discussing your idea
-enables both you and the dev team that we are on the same page before
-you start on working on your change. If you have any questions, feel
-free to ask for help at any time!
-
-## Adding a new keyboard layout
-
-Adding a layout to FlorisBoard is very simple and does not require any
-coding skills, although you should understand the basics of the JSON
-syntax (it is very easy though by just looking at some other layout files).
-There are two main steps in adding new layouts, though the config step can
-be skipped if you only add a layout without a new default language support.
-
-### The config file ([`app/src/main/assets/ime/config.json`](app/src/main/assets/ime/config.json))
-
-This file is very important, as it defines all default currency sets as
-well as all default subtypes available in the Settings Subtype UI. Note
-that you don't have to modify this file if you add a layout for an already
-pre-configured language.
-
-- `currencySets`: This is a list of all currency sets, which can be chosen
-  for each subtype. If you consider adding a new one, make sure that the
-  first currency symbol matches the name of the currency set and also
-  ensure that you have exactly 6 currency symbols. This is important as the
-  symbol layouts have exactly 6 slots available to fill these defined
-  currency symbols in.
-- `defaultSubtyes`: This is a list of all pre-made subtypes. Each time the
-  user selects a language in the `Subtype Add`-dialog, all options configured
-  here will get pre-selected. The language tag must adhere to the IETF BCP
-  47 code ([ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
-  and [ISO 3166-1 region code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)).
-  For example, Dutch as spoken in Belgium is `nl-be`. Use a unique value
-  for `id` to avoid possible crashes caused by duplicate ids.
+Full original document at [../CONTIBUTING.md](../CONTIBUTING.md)
 
 ### Adding the layout
 
@@ -102,31 +37,79 @@ each key via the `popup` field.
 
 📌 Useful files:
 
-[florisboard/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts at master · CouldBeThis/florisboard](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts)
+Layouts: [florisboard/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts)
 
-- [characters](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/characters)
-  - [qwerty.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/characters/qwerty.json) - 3 rows, letters only
-- [charactersMod](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/charactersMod)
-  - [default.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/charactersMod/default.json) - default punctuation, shift, space etc
-- [extension](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/extension)
-  - [clipboard_cursor_row.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/extension/clipboard_cursor_row.json) - copy, paste etc
+[characters](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/characters): [qwerty.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/characters/qwerty.json) - 3 rows, letters only
+
+![01-primary_letters_lowercase-charecters-qwerty](images/01-primary_letters_lowercase-charecters-qwerty.png)
+
+
+
+[numericRow](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numericRow): [western_arabic.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numericRow/western_arabic.json) - primary number row
+
+![01-primary_letters_lowercase-numeric-Row_western_arabic](images/01-primary_letters_lowercase-numeric-Row_western_arabic.png)
+
+[symbols](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols): [western.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols/western.json) - useful and less useful symbols
+
+![03-secondary-symbols-western](images/03-secondary-symbols-western.png)
+
+
+
+[symbols2](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols2): [western.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols2/western.json)
+
+![04-tertiary-symbols2-western](images/04-tertiary-symbols2-western.png)
+
+
+
+![ALT](images/FILENAME.png)
+
+
+
+![ALT](images/FILENAME.png)
+
+
+
+![ALT](images/FILENAME.png)
+
+
+
+![ALT](images/FILENAME.png)
+
+
+
+
+
+**where is this?:**
+
+![02-primary_letters_uppercase](images/02-primary_letters_uppercase-unmarked.png)
+
+
+
+
+
+
+
+
+
+[western_additional_symbols.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols/western_additional_symbols.json) - do not think it is used?
+
+
+- [charactersMod](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/charactersMod): [default.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/charactersMod/default.json) - default punctuation, shift, space etc
+- [extension](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/extension): [clipboard_cursor_row.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/extension/clipboard_cursor_row.json) - copy, paste etc
 - [numeric](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numeric)
   - [western_arabic.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numeric/western_arabic.json) - number pad, 1 at top
   - [western_arabic_pc.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numeric/western_arabic_pc.json) - number pad, 1 at bottom
 - [numericAdvanced](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numericAdvanced)
   - [western_arabic.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numericAdvanced/western_arabic.json) symbols, bracket and numbers
   - [western_arabic_pc.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numericAdvanced/western_arabic_pc.json) symbols, bracket and numbers
-- [numericRow](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numericRow)
-  - [western_arabic.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/numericRow/western_arabic.json) - fractions and exponents
-- [phone](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/phone)
-  - [telpad.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/phone/telpad.json) - number pad, 1 at top
-- [phone2](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/phone2)
-  - [telpad.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/phone2/telpad.json) - number pad, symbols only
-- [symbols](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols)
-  - [western.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols/western.json) - useful and less useful symbols
-  - [western_additional_symbols.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols/western_additional_symbols.json) - useful and less useful symbols
-- [symbols2](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols2)
-  - [western.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols2/western.json) - useful and less useful symbols
+- 
+- [phone](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/phone): [telpad.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/phone/telpad.json) - number pad, 1 at top
+- [phone2](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/phone2): [telpad.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/phone2/telpad.json) - number pad, symbols only
+
+
+
+
+- - 
 - [symbols2Mod](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols2Mod)
   - [default.json](https://github.com/CouldBeThis/florisboard/blob/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbols2Mod/default.json) - useful and less useful symbols (only a few of them)
 - [symbolsMod](https://github.com/CouldBeThis/florisboard/tree/master/app/src/main/assets/ime/keyboard/org.florisboard.layouts/layouts/symbolsMod)
