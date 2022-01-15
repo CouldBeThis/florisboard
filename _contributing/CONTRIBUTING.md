@@ -79,7 +79,7 @@ Layouts: [florisboard/app/src/main/assets/ime/keyboard/org.florisboard.layouts/l
 
 
 
-**where is this?:**
+**where is the uppercase letters?:**
 
 ![02-primary_letters_uppercase](images/02-primary_letters_uppercase-unmarked.png)
 
